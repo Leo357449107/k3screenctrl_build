@@ -19,7 +19,7 @@ TARGET_CFLAGS+= -D_GNU_SOURCE
 define Package/k3screenctrl
   SECTION:=utils
   CATEGORY:=Utilities
-  DEPENDS:=@(TARGET_bcm53xx_generic_DEVICE_phicomm_k3||TARGET_bcm53xx_generic_DEVICE_phicomm-k3||TARGET_bcm53xx_DEVICE_phicomm-k3) +@KERNEL_DEVMEM +coreutils +coreutils-od +bash +curl
+  DEPENDS:=@(TARGET_bcm53xx_generic_DEVICE_phicomm_k3||TARGET_bcm53xx_generic_DEVICE_phicomm-k3||TARGET_bcm53xx_DEVICE_phicomm-k3) +@KERNEL_DEVMEM +coreutils +coreutils-od +bash +curl +openssl-util
   TITLE:=LCD screen controller on PHICOMM K3
   URL:=https://github.com/lwz322/k3screenctrl.git
 endef
@@ -42,7 +42,7 @@ define Package/k3screenctrl/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/k3screenctrl/port.sh $(1)/lib/k3screenctrl/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/k3screenctrl/basic.sh $(1)/lib/k3screenctrl/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/k3screenctrl/host.sh $(1)/lib/k3screenctrl/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/k3screenctrl/weather.sh $(1)/lib/k3screenctrl/
+	$(INSTALL_BIN) ./files/lib/k3screenctrl/weather.sh $(1)/lib/k3screenctrl/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/lib/k3screenctrl/oui/oui.txt $(1)/lib/k3screenctrl/oui/
 
 	$(INSTALL_BIN) ./files/k3screenctrl.init $(1)/etc/init.d/k3screenctrl

@@ -4,6 +4,9 @@
 
 因为配套的相关程序的更新，与其他作者的k3screenctrl以及luci-app不兼容
 
+Leo357449107: 添加了心知天气公钥签名验证的支持，在填写了公钥的情况下使用签名验证方式认证（V3）。
+TODO: 心知天气API v4
+
 # k3screenctrl_build
 
  build k3screenctrl via OpenWrt Snapshot source and support luci-app-k3screenctrl
